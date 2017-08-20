@@ -1,0 +1,395 @@
+
+<html>
+    <head>
+        <title>KU ADMISSION FORM</title>
+        <link type="text/css" rel="stylesheet" href="stylesheet/style.css" />
+        <script type="text/javascript" src="javascript/validate.js">
+        </script>
+    </head>
+<body>
+    <div id="wrapper">
+    	<div id="top">
+        </div>
+        <div id="mid">
+            <div id="form_container">
+            	<h1>KU STUDENT ADMISSION FORM</h1>
+                <form name="AdmissionForm" method="post" action="a.php" onsubmit="return ValidateForm()">
+                    <table id="OuterTable">
+                        <tr>
+                        	<td>
+                            	<fieldset>
+                                    <legend>Personal Information</legend>
+                                    <table class="InnerTable">
+                                        <tr>
+                                            <td class="FirstColumn">First Name</td>
+                                            <td colspan="2"><input type="text" name="FirstName" value="" id="FirstName" class="TextField" maxlength="20" size="20" onchange="javascript:ValidateFirstName();" onclick="javascript:ClearField(this);" /></td>
+                                            <td><img id="FirstNameErrorImg" src="Images/transparent.png" height="16" width="16" /></td>
+                                            <td id="FirstNameError" class="LastColumn"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="FirstColumn">Last Name</td>
+                                            <td colspan="2"><input type="text" name="LastName" value="" id="LastName" class="TextField" maxlength="20" size="20" onchange="javascript:ValidateLastName();" onclick="javascript:ClearField(this);" /></td>
+                                            <td><img id="LastNameErrorImg" src="Images/transparent.png" height="16" width="16" /></td>
+                                            <td id="LastNameError" class="LastColumn"></td>
+                                        </tr>
+                                        <tr>
+                                        	<td class="FirstColumn">Date of Birth</td>
+                                            <td colspan="2">
+                                            	<select name="Year" onchange="javascript:CalculateAge();">
+                                                	<script type="text/javascript">
+														var i=1980;
+														var Date1=new Date();
+														for (i=1980;i<=Date1.getFullYear();i++)
+														{
+															document.write("<option value=\""+i+"\">"+i+"</option>");
+														}
+													</script>
+                                                </select>
+                                                <select name="Month" onchange="javascript:CalculateAge();">
+                                                	<option value="1">Janaury</option>
+                                                    <option value="2">Febraury</option>
+                                                    <option value="3">March</option>
+                                                    <option value="4">April</option>
+                                                    <option value="5">May</option>
+                                                    <option value="6">June</option>
+                                                    <option value="7">July</option>
+                                                    <option value="8">August</option>
+                                                    <option value="9">September</option>
+                                                    <option value="10">October</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
+                                                </select>
+                                                <select name="Day" onchange="javascript:CalculateAge();">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                    <option value="15">15</option>
+                                                    <option value="16">16</option>
+                                                    <option value="17">17</option>
+                                                    <option value="18">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                    <option value="23">23</option>
+                                                    <option value="24">24</option>
+                                                    <option value="25">25</option>
+                                                    <option value="26">26</option>
+                                                    <option value="27">27</option>
+                                                    <option value="28">28</option>
+                                                    <option value="29">29</option>
+                                                    <option value="30">30</option>
+                                                    <option value="31">31</option>
+	                                            </select>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                        	<td class="FirstColumn">Age</td>
+                                            <td colspan="2"><input type="text" name="Age" value="" id="Age" class="TextField" maxlength="3" size="20" onchange="javascript:ValidateAge();" onclick="javascript:ClearField(this);" disabled="disabled" style="background-color:#666666;" /></td>
+                                            <td><img id="AgeErrorImg" src="Images/transparent.png" height="16" width="16" /></td>
+                                            <td id="AgeError" class="LastColumn"></td>
+                                        </tr>
+                                    	<tr>
+                                            <td class="FirstColumn">Gender</td>
+                                            <td><input type="radio" name="Gender" value="Male" checked="checked" /></td>
+                                            <td><input type="radio" name="Gender" value="Female" /></td>
+                                            <td></td>
+                                            <td class="LastColumn"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="FirstColumn"></td>
+                                            <td>Male</td>
+                                            <td>Female</td>
+                                            <td></td>
+                                            <td class="LastColumn"></td>
+                                        </tr>
+                                        
+                                    </table>
+                            	</fieldset>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td>
+                            	<fieldset>
+                                    <legend>Contact Information</legend>
+                                    <table class="InnerTable">
+                                        <tr>
+                                            <td class="FirstColumn">Address</td>
+                                            <td colspan="2"><input type="text" name="Address" value="" id="Address" class="TextField" maxlength="50" size="20" onchange="javascript:ValidateAddress();" onclick="javascript:ClearField(this);" /></td>
+                                            <td><img id="AddressErrorImg" src="Images/transparent.png" height="16" width="16" /></td>
+                                            <td id="AddressError" class="LastColumn"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="FirstColumn">Phone No</td>
+                                            <td colspan="2"><input type="text" name="PhoneNo" value="" id="PhoneNo" class="TextField" maxlength="15" size="20" onchange="javascript:ValidatePhoneMobile(this);" onclick="javascript:ClearField(this);" /></td>
+                                            <td><img id="PhoneNoErrorImg" src="Images/transparent.png" height="16" width="16" /></td>
+                                            <td id="PhoneNoError" class="LastColumn"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="FirstColumn">Mobile No</td>
+                                            <td colspan="2"><input type="text" name="MobileNo" value="" id="MobileNo" class="TextField" maxlength="15" size="20" onchange="javascript:ValidatePhoneMobile(this);" onclick="javascript:ClearField(this);" /></td>
+                                            <td><img id="MobileNoErrorImg" src="Images/transparent.png" height="16" width="16" /></td>
+                                            <td id="MobileNoError" class="LastColumn"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="FirstColumn">Email</td>
+                                            <td colspan="2"><input type="text" name="Email" value="" id="Email" class="TextField" maxlength="50" size="20" onchange="javascript:ValidateEmail();" onclick="javascript:ClearField(this);" /></td>
+                                            <td><img id="EmailErrorImg" src="Images/transparent.png" height="16" width="16" /></td>
+                                            <td id="EmailError" class="LastColumn"></td>
+                                        </tr>
+                        			</table>
+                            	</fieldset>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td>
+                            	<fieldset>
+                                    <legend>User Information</legend>
+                                    <table class="InnerTable">
+                                        <tr>
+                                            <td class="FirstColumn">Username</td>
+                                            <td colspan="2"><input type="text" name="Username" value="" id="Username" class="TextField" maxlength="50" size="20" onchange="javascript:ValidateUsername();" onclick="javascript:ClearField(this);" /></td>
+                                            <td><img id="UsernameErrorImg" src="Images/transparent.png" height="16" width="16" /></td>
+                                            <td id="UsernameError" class="LastColumn"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="FirstColumn">Password</td>
+                                            <td colspan="2"><input type="password" name="Password" value="" id="Password" class="TextField" size="20" maxlength="50" onchange="javascript:ValidatePassword();" onclick="javascript:ClearField(this);" /></td>
+                                            <td><img id="PasswordErrorImg" src="Images/transparent.png" height="16" width="16" /></td>
+                                            <td id="PasswordError" class="LastColumn"></td>
+                                        </tr>
+              						</table>
+                            	</fieldset>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                        	<td>
+                            	<fieldset>
+                                <legend>Admission Department</legend>
+                                <table class="InnerTable">
+                                	<tr>
+                                    <td class="FirstColumn">Application For</td>
+                                    <td colspan="4">
+                                    <select name="AdmissionDepartment" onchange="javascript:ChangeFieldAggregate();">
+                                    	<option value="ComputerEngineering" selected="selected">Bachelor in Computer Engineering</option>
+                                        <option value="CivilEngineering">Bachelor in Civil Engineering</option>
+                                     	<option value="MechanicalEngineering">Bachelor in Mechanical Engineering</option>
+                                        <option value="ElectricalEngineering">Bachelor in Electrical Engineering [Power]</option>
+                                        <option value="ElectronicsAndCommunicationEngineering">Bachelor in Electronics And Communication Engineering</option>
+                                        <option value="GeomaticsEngineering">Bachelor in Geomatics Engineering</option>
+                                        
+                                        <option value="AppliedScience">Bachelor in Applied Science</option>
+                                        <option value="Pharmacy">Bachelor in Pharmacy</option>
+                                        <option value="ComputerScience">Bachelor in Computer Science</option>
+                                        
+                                        <option value="Media">Bachelor in Media Studies</option>
+                                        
+                                        <option value="BBA">BBA</option>
+                                        <option value="BBS">BBS</option>
+                                        
+                                        <option value="MBBS">MBBS</option>
+                                        <option value="Dentistry">Bachelor in Dentistry</option>
+                                        <option value="StaffNursing">Diploma in Staff Nursing</option>
+                                        <option value="BN">Bachelor in Nursing</option>
+					<option value="BTECH">Bachelor in BioTechnology</option>
+                                        
+                                    </select>
+                                    
+                                    </td>
+                                    </tr>
+                                </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                        	<td>
+                            	<fieldset>
+                                <legend>Educational Qualification</legend>
+                                <table class="InnerTable" border="1px" style="border-collapse:collapse;">
+                                	<tr>
+                                	<td style="text-align:left;padding:5px;" class="FirstColumn">Level</td>
+                                    <td style="text-align:left;padding:5px;">Board</td>
+                                    <td style="text-align:left;padding:5px;">School/College</td>
+                                    <td style="text-align:left;padding:5px;" colspan="2">Percentage/GPA</td>	
+                                    </tr>
+                                    <tr>
+                                    <td style="text-align:left;padding:2px;" class="FirstColumn">SLC/Equivalent</td>
+                                    <td style="text-align:left;padding:2px;"><input type="text" name="SLCBoard" id="SLCBoard" value="" maxlength="50" size="20" style="border:1px solid #999999;" /></td>
+                                    <td style="text-align:left;padding:2px;"><input type="text" name="School" id="School" value="" maxlength="50" size="20" style="border:1px solid #999999;" /></td>
+                                    <td style="text-align:left;padding:2px;"colspan="2"><input type="text" name="Percantage" id="Percantage" value="" maxlength="3" size="20" onchange="javascript:ValidatePercentage(this);" onclick="javascript:ClearField(this);" style="border:1px solid #999999;" /></td>
+                                    </tr>
+                                    <tr>
+                                    <td style="text-align:left;padding:2px;" class="FirstColumn">+2/Isc/Equivalent</td>
+                                    <td style="text-align:left;padding:2px;"><input type="text" name="HSSBoard" id="HSSBoard" value="" maxlength="50" size="20" style="border:1px solid #999999;" /></td>
+                                    <td style="text-align:left;padding:2px;"><input type="text" name="HSSSchool" id="HSSSchool" value="" maxlength="50" size="20" style="border:1px solid #999999;" /></td>
+                                    <td style="text-align:left;padding:2px;"colspan="2"><input type="text" name="HSSPercantage" id="HSSPercantage" value="" maxlength="3" size="20" onchange="javascript:ValidatePercentage(this);" onclick="javascript:ClearField(this);" style="border:1px solid #999999;" /></td>
+                                    </tr>
+                                </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                        
+                        
+                        <tr>
+                        	<td>
+                            	<fieldset>
+                                <legend>PCM / PCB / ENL / EEA Percantage</legend>
+                                <table class="InnerTable" border="1px" cellpadding="10" style="border-collapse:collapse;">
+                                	<td class="FirstColumn">
+                                    	<table cellspacing="0" cellpadding="0">
+                                        <tr>
+                                        <td colspan="2"><input type="radio" name="PCMFieldAggregate" id="PCMFieldAggragate" disabled="disabled" />PCM</td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                    	Physics</td><td><input type="text" name="PCMPhysics" id="PCMPhysics" value="0" maxlength="3" size="5" disabled="disabled" onchange="javascript:ValidateMark(this);" onclick="javascript:ClearField(this);" style="border:1px solid #999999;" />
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                    	Chemistry</td><td><input type="text" name="PCMChemistry" id="PCMChemistry" value="0" maxlength="3" size="5" disabled="disabled" onchange="javascript:ValidateMark(this);" onclick="javascript:ClearField(this);" style="border:1px solid #999999;" />
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                        Mathematics</td><td><input type="text" name="PCMMaths" id="PCMMaths" value="0" maxlength="3" size="5" disabled="disabled" onchange="javascript:ValidateMark(this);" onclick="javascript:ClearField(this);" style="border:1px solid #999999;" />
+                                        </td>
+                                        </tr>
+					<tr>
+					<td>PCM %</td>
+					<td><input type="text" name="PCMPercentage" id="PCMPercentage" maxlength="10" size="5" disabled="disabled" style="border:1px solid #999999;" /></td>
+					</tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                    	<table cellspacing="0" cellpadding="0">
+                                        <tr>
+                                        <td colspan="2"><input type="radio" name="PCBFieldAggregate" id="PCBFieldAggragate" disabled="disabled" />PCB</td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                    	Physics</td><td><input type="text" name="PCBPhysics" id="PCBPhysics" value="0" maxlength="3" size="5" disabled="disabled" onchange="javascript:ValidateMark(this);" onclick="javascript:ClearField(this);" style="border:1px solid #999999;" />
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                    	Chemistry</td><td><input type="text" name="PCBChemistry" id="PCBChemistry" value="0" maxlength="3" size="5" disabled="disabled" onchange="javascript:ValidateMark(this);" onclick="javascript:ClearField(this);" style="border:1px solid #999999;" />
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                        Biology</td><td><input type="text" name="PCBBiology" id="PCBBiology" value="0" maxlength="3" size="5" disabled="disabled" onchange="javascript:ValidateMark(this);" onclick="javascript:ClearField(this);" style="border:1px solid #999999;" />
+                                        </td>
+                                        </tr>
+					<tr>
+					<td>PCB %</td>
+					<td><input type="text" name="PCBPercentage" id="PCBPercentage" maxlength="10" size="5" disabled="disabled" style="border:1px solid #999999;" /></td>
+					</tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                    	<table cellspacing="0" cellpadding="0">
+                                        <tr>
+                                        <td colspan="2"><input type="radio" name="ENLFieldAggregate" id="ENLFieldAggragate" disabled="disabled" />ENL</td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                    	English</td><td><input type="text" name="MEnglish" id="MEnglish" value="0" maxlength="3" size="5" disabled="disabled" onchange="javascript:ValidateMark(this);" onclick="javascript:ClearField(this);" style="border:1px solid #999999;" />
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                    	Nepali</td><td><input type="text" name="MNepali" id="MNepali" value="0" maxlength="3" size="5" disabled="disabled" onchange="javascript:ValidateMark(this);" onclick="javascript:ClearField(this);" style="border:1px solid #999999;" />
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                    	Literature</td><td><input type="text" name="MLiterature" id="MLiterature" value="0" maxlength="3" size="5" disabled="disabled" onchange="javascript:ValidateMark(this);" onclick="javascript:ClearField(this);" style="border:1px solid #999999;" />
+                                        </td>
+                                        </tr>
+					<tr>
+					<td>ENL %</td>
+					<td><input type="text" name="ENLPercentage" id="ENLPercentage" maxlength="10" size="5" disabled="disabled" style="border:1px solid #999999;" /></td>
+					</tr>
+                                        </table>
+                                    </td>
+                                    <td colspan="2">
+                                    	<table cellspacing="0" cellpadding="0">
+                                        <tr>
+                                        <td colspan="2"><input type="radio" name="EEAFieldAggregate" id="EEAFieldAggragate" disabled="disabled" />EEA</td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                    	English</td><td><input type="text" name="MGMTEnglish" id="MGMTEnglish" value="0" maxlength="3" size="5" disabled="disabled" onchange="javascript:ValidateMark(this);" onclick="javascript:ClearField(this);" style="border:1px solid #999999;" />
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                    	Economics</td><td><input type="text" name="MGMTEconomics" id="MGMTEconomics" value="0" maxlength="3" size="5" disabled="disabled" onchange="javascript:ValidateMark(this);" onclick="javascript:ClearField(this);" style="border:1px solid #999999;" />
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                    	Accounting</td><td><input type="text" name="MGMTAccounting" id="MGMTAccounting" value="0" maxlength="3" size="5" disabled="disabled" onchange="javascript:ValidateMark(this);" onclick="javascript:ClearField(this);" style="border:1px solid #999999;" />
+                                        </td>
+                                        </tr>
+					<tr>
+					<td>EEA %</td>
+					<td><input type="text" name="EEAPercentage" id="EEAPercentage" maxlength="10" size="5" disabled="disabled" style="border:1px solid #999999;" /></td>
+					</tr>
+                                        </table>
+                                    </td>
+                                </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                        
+                        
+                        
+                        <tr>
+                        	<td>
+                            	<fieldset>
+                                <legend>Form Submission</legend>
+                                <table class="InnerTable">
+                                	<tr>
+                                    <td colspan="5"><input type="checkbox" name="Agreement" id="Agreement"  />I hereby accept all penalties if above filled up information are found to be incorrect.</td>
+                                    </tr>
+					<tr><td><img id="AgreementErrorImg" src="Images/transparent.png" height="16" width="16" /></td><td colspan="4" id="AgreementError"></td></tr>
+                                	<tr>
+                                    <td class="FirstColumn"><input type="submit" value="Submit" name="Submit" /></td>
+                                    <td colspan="4"><input type="reset" value="Reset" name="Reset" /></td>
+                                    </tr>
+                                </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table><!--end of form table-->
+                </form><!--end of form-->
+            </div><!--end of form container-->
+        </div><!--end of mid part-->
+        <div id="bottom_part">
+        </div><!--end of bottom part-->
+    </div><!--end of wrapper-->
+    <script type="text/javascript">
+	CalculateAge();
+	ChangeFieldAggregate();
+	//CalculatePercentage(document.AdmissionForm.PCMPhysics,document.AdmissionForm.PCMChemistry,document.AdmissionForm.PCMMaths,document.AdmissionForm.PCMPercentage);
+			
+	</script>
+</body>
+</html>
