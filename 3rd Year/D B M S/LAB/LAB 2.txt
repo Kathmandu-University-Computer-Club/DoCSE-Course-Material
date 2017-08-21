@@ -1,0 +1,264 @@
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2
+Server version: 5.5.22 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2011, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> mysql -u root -p
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'mysql
+ -u root -p' at line 1
+mysql> cls
+    ->
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'cls'
+at line 1
+mysql> clear
+mysql> CREATE DATABASE companysales;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> CREATE TABLE salesperson (id INT(10) AUTO_INCREMENT PRIMARY KEY, name TEX
+T, age INT(2), salary INT(8));
+ERROR 1046 (3D000): No database selected
+mysql> CREATE TABLE salesperson (id INT(10) AUTO_INCREMENT PRIMARY KEY, name TEX
+T, age INT(2), salary INT(8));
+ERROR 1046 (3D000): No database selected
+mysql> USE companysales;
+Database changed
+mysql> CREATE TABLE salesperson (id INT(10) AUTO_INCREMENT PRIMARY KEY, name TEX
+T, age INT(2), salary INT(8));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> show table salesperson
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'sales
+person' at line 1
+mysql> DESC salesperson
+    -> ;
++--------+---------+------+-----+---------+----------------+
+| Field  | Type    | Null | Key | Default | Extra          |
++--------+---------+------+-----+---------+----------------+
+| id     | int(10) | NO   | PRI | NULL    | auto_increment |
+| name   | text    | YES  |     | NULL    |                |
+| age    | int(2)  | YES  |     | NULL    |                |
+| salary | int(8)  | YES  |     | NULL    |                |
++--------+---------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO  salesperson (id, name, age, salary) VALUES ("Sonia", 35, 140
+000);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> INSERT INTO  salesperson (id, name, age, salary) VALUES (1, "Sonia", 35,
+140000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM salesperson;
++----+-------+------+--------+
+| id | name  | age  | salary |
++----+-------+------+--------+
+|  1 | Sonia |   35 | 140000 |
++----+-------+------+--------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO  salesperson (id, name, age, salary) VALUES ( "Rima", 34, 440
+00);00);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near '00)'
+at line 1
+mysql> INSERT INTO  salesperson (id, name, age, salary) VALUES (2, "Rima", 34, 4
+4000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO  salesperson (id, name, age, salary) VALUES (2, "Cristina", 3
+4, 40000);
+ERROR 1062 (23000): Duplicate entry '2' for key 'PRIMARY'
+mysql> INSERT INTO  salesperson (id, name, age, salary) VALUES (3, "Cristina", 3
+4, 40000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO  salesperson (id, name, age, salary) VALUES (7, "Danvir raj",
+ 41, 52000);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO  salesperson (id, name, age, salary) VALUES (8, "Kailash kuma
+r", 34, 115000);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO  salesperson (id, name, age, salary) VALUES (11, "Shreya", 30
+, 38000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM salesperson;
++----+---------------+------+--------+
+| id | name          | age  | salary |
++----+---------------+------+--------+
+|  1 | Sonia         |   35 | 140000 |
+|  2 | Rima          |   34 |  44000 |
+|  3 | Cristina      |   34 |  40000 |
+|  7 | Danvir raj    |   41 |  52000 |
+|  8 | Kailash kumar |   34 | 115000 |
+| 11 | Shreya        |   30 |  38000 |
++----+---------------+------+--------+
+6 rows in set (0.00 sec)
+
+mysql> CREATE TABLE salesperson (id INT(10) AUTO_INCREMENT PRIMARY KEY, name TEX
+T, city TEXT, industry Type TEXT);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'Type
+TEXT)' at line 1
+mysql> CREATE TABLE salesperson (id INT(10) AUTO_INCREMENT PRIMARY KEY, name TEX
+T, city TEXT, industry_type TEXT);
+ERROR 1050 (42S01): Table 'salesperson' already exists
+mysql> CREATE TABLE customer (id INT(10) AUTO_INCREMENT PRIMARY KEY, name TEXT,
+city TEXT, industry_type);e TEXT)
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near ')' at
+ line 1
+    -> CREATE TABLE customer (id INT(10) AUTO_INCREMENT PRIMARY KEY, name TEXT,
+city TEXT, industry_type);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'e TEX
+T)
+CREATE TABLE customer (id INT(10) AUTO_INCREMENT PRIMARY KEY, name TEXT,' at lin
+e 1
+mysql> CREATE TABLE customer (id INT(10) AUTO_INCREMENT PRIMARY KEY, name TEXT,
+city TEXT, industry_type TEXT);
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> DESC customer
+    -> ;
++---------------+---------+------+-----+---------+----------------+
+| Field         | Type    | Null | Key | Default | Extra          |
++---------------+---------+------+-----+---------+----------------+
+| id            | int(10) | NO   | PRI | NULL    | auto_increment |
+| name          | text    | YES  |     | NULL    |                |
+| city          | text    | YES  |     | NULL    |                |
+| industry_type | text    | YES  |     | NULL    |                |
++---------------+---------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO  customer  (id, name, city, industry_type) VALUES (4, "samson
+ic", pleasant, J);
+ERROR 1054 (42S22): Unknown column 'pleasant' in 'field list'
+mysql> INSERT INTO  customer  (id, name, city, industry_type) VALUES (4, "samson
+ic","pleasant","J");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO  customer  (id, name, city, industry_type) VALUES (6, "panasu
+ng","oaktown","J");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO  customer  (id, name, city, industry_type) VALUES (7, "samony
+","jackson","B");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO  customer  (id, name, city, industry_type) VALUES (9, "orange
+","jackson","B");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM customer;
++----+----------+----------+---------------+
+| id | name     | city     | industry_type |
++----+----------+----------+---------------+
+|  4 | samsonic | pleasant | J             |
+|  6 | panasung | oaktown  | J             |
+|  7 | samony   | jackson  | B             |
+|  9 | orange   | jackson  | B             |
++----+----------+----------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE TABLE orders (number INT(10) AUTO_INCREMENT PRIMARY KEY, order_dat
+e DATE, cust_id INT(6), salesperson_id INT(6), amount INT(10));
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> DESC orders;
++----------------+---------+------+-----+---------+----------------+
+| Field          | Type    | Null | Key | Default | Extra          |
++----------------+---------+------+-----+---------+----------------+
+| number         | int(10) | NO   | PRI | NULL    | auto_increment |
+| order_date     | date    | YES  |     | NULL    |                |
+| cust_id        | int(6)  | YES  |     | NULL    |                |
+| salesperson_id | int(6)  | YES  |     | NULL    |                |
+| amount         | int(10) | YES  |     | NULL    |                |
++----------------+---------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO orders (number , order_date, cust_id , salesperson_id, amount
+) VALUES (10, 8/2/96, 4,2,540);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO orders (number , order_date, cust_id , salesperson_id, amount
+) VALUES (20, 1/30/99, 4,8,1800);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO orders (number , order_date, cust_id , salesperson_id, amount
+) VALUES (30, 17/14/95, 9,1,460);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO orders (number , order_date, cust_id , salesperson_id, amount
+) VALUES (40, 1/29/98, 7,2,2400);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO orders (number , order_date, cust_id , salesperson_id, amount
+) VALUES (50, 2/3/98, 6,7,600);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO orders (number , order_date, cust_id , salesperson_id, amount
+) VALUES (60, 3/2/98, 6 , 7 ,720);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO orders (number , order_date, cust_id , salesperson_id, amount
+) VALUES (70, 5/6/98 , 9 , 7 ,150);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM orders;
++--------+------------+---------+----------------+--------+
+| number | order_date | cust_id | salesperson_id | amount |
++--------+------------+---------+----------------+--------+
+|     10 | 0000-00-00 |       4 |              2 |    540 |
+|     20 | 0000-00-00 |       4 |              8 |   1800 |
+|     30 | 0000-00-00 |       9 |              1 |    460 |
+|     40 | 0000-00-00 |       7 |              2 |   2400 |
+|     50 | 0000-00-00 |       6 |              7 |    600 |
+|     60 | 0000-00-00 |       6 |              7 |    720 |
+|     70 | 0000-00-00 |       9 |              7 |    150 |
++--------+------------+---------+----------------+--------+
+7 rows in set (0.00 sec)
+
+mysql> ALTER TABLE MODIFY order_date AS order_date DATE (DD, MM, YY);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'order
+_date AS order_date DATE (DD, MM, YY)' at line 1
+mysql> ALTER TABLE MODIFY order_date AS order_date DATE (DD/MM/YY);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'order
+_date AS order_date DATE (DD/MM/YY)' at line 1
+mysql> ALTER TABLE MODIFY order_date AS order_date DATE (DD/MM/YY);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'order
+_date AS order_date DATE (DD/MM/YY)' at line 1
+mysql> UPDATE orders SET  (order_date) VALUES (1996-2-8) WHERE number = 10;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near '(orde
+r_date) VALUES (1996-2-8) WHERE number = 10' at line 1
+mysql> UPDATE orders SET order_date = 1996-2-8 WHERE number = 10;
+ERROR 1292 (22007): Incorrect date value: '1986' for column 'order_date' at row
+1
+mysql> UPDATE TABLE orders SET order_date = 1996-2-8 WHERE number = 10;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'TABLE
+ orders SET order_date = 1996-2-8 WHERE number = 10' at line 1
+mysql> INSERT INTO orders (number , order_date, cust_id , salesperson_id, amount
+) VALUES (70, 5/6/98 , 9 , 7 ,
+    ->
